@@ -2,7 +2,7 @@
 
 This project it for BYUI CSE210
 
-GitHub Steps
+GitHub Steps Week03 project
 
 1. git clone https://github.com/owamamwen1/cse210-02.git
 2. open the folder with new terminal
