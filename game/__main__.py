@@ -4,6 +4,7 @@ Authors:
   - Sheyla Norton
   - Ogunniyi Owamamwen
   - Eugene Kartey
+  - Aaron Gusa
 """
 from gamegues import game_player
 
