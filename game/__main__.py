@@ -3,7 +3,8 @@ A command-line tool for checking source code documentation requirements.
 Authors:
   - Sheyla N. Norton 
   - Ogunniyi Owamamwen
-  - 
+  - Eugene Kartey
+  - Aaron Gusa
 """
 from gamegues import game_player
 
