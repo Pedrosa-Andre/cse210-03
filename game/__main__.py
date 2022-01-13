@@ -1,7 +1,7 @@
 """ Documentation checker
 A command-line tool for checking source code documentation requirements.
 Authors:
-  - Sheyla Norton
+  - Sheyla N. Norton 
   - Ogunniyi Owamamwen
   - 
 """
