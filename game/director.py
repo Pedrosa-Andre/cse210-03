@@ -26,30 +26,31 @@ class Director:
         self.card_guess = input("Higher or Lower? [h/l]")
         return self.card_guess
 
-    def compareValues(val1, val2):
-        """Compare two numeric values, if the second is bigger returns
-        'h' (higher) if the second is smaller returns 'l' (lower)
+    def compareValues(self):  
+        
+        val1 = self.firstCard
+        val2 = self.secondCard
 
-        Args:
-            val1 (int): The value from showNumberCard()
-            val2 (int): The value from showNextCard()
-        """
-        if (val2 > val1):
+        if (val2 > val1): 
             return 'h'
         if (val2 < val1):
             return 'l'
-            
-    def computeScore(userAnsw, compAnsw):
-        """Compare two answers, if they're equal adds 100 points to the
-        user, if not subtract 75 points from the user.
 
-        Args:
-            userAnsw (char): The answer from the user (getAnswer())
-            compAnsw (char): The answer from compareValues() 
-        """
-        
-        currentScore = player.getScore() 
+    def computeScore(self):
+
+        if not self.is_playing:
+            return
+
+        player = Player()
+
+        score = player.getScore()
+        userAnsw = self.card_guess
+        compAnsw = self.compareValues()
+
         if (userAnsw == compAnsw):
-            player.setScore(currentScore + 100)
+            score = player.correctScore
         if (userAnsw != compAnsw):
-            player.setScore(currentScore -75)
+            score = player.incorrectScore
+            
+        print(f"Next card was: {self.secondCard}")
+        print(f"Your score is: {score}")
