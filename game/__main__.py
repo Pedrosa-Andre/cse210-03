@@ -7,16 +7,10 @@ Authors:
   - Aaron Gusa
   - André Pedrosa
 """
-from gamegues import game_player
-
+from director import Director
 
 # The main function call other functions to run
 # This mean one entry point
 
-
-def main():
-    game_player()
-
-
-if __name__ == "__main__":
-    main()
+director = Director()
+director.start_game()
