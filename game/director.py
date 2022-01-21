@@ -54,3 +54,7 @@ class Director:
             
         print(f"Next card was: {self.secondCard}")
         print(f"Your score is: {score}")
+
+    def keepPlaying(self):   
+        playGame = input("Play game? [y/n] ")
+        self.is_playing = (playGame == "y")
