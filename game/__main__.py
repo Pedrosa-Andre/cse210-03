@@ -5,6 +5,7 @@ Authors:
   - Ogunniyi Owamamwen
   - Eugene Kartey
   - Aaron Gusa
+  - André Pedrosa
 """
 from gamegues import game_player
 
