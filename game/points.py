@@ -1,6 +1,6 @@
 
 
-class Player:
+class Points:
     """The responsibility of Player is to keep track 
     of the points depending on the user input.
     
@@ -14,8 +14,7 @@ class Player:
         Args:
             self (Player): An instance of Player.
         """
-
-        # self.points = 0 not sure if this is necessary    
+   
 
     def setScore (self): 
         """Sets the score for the player
@@ -23,7 +22,7 @@ class Player:
         Args:
             self (Player): An instance of Player."""
         
-        self.points = 300
+        self.points = 0
         return self.points
 
 

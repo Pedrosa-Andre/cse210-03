@@ -1,4 +1,4 @@
-from player import Player
+from points import Points
 from card import Cards
 
 
@@ -11,22 +11,59 @@ class Director:
         TODO add atributes
     """
     def __init__(self):
+        """Constructs a new Director.
+        
+        Args:
+            self (Director): an instance of Director.
+        """
         self.is_playing = True
+        self.score = 0  
+        self.total_score = 300 
+
     def start_game(self):
+        """Starts the game by running the main game loop.
+            
+        Args:
+            self (Director): an instance of Director.
+        """
+
         while self.is_playing:
             self.getAnswer()
             self.compareValues()
             self.computeScore()
-            self.keepPlaying()
+
+            if self.total_score <= 0:
+                self.keepPlaying()
+
+
     def getAnswer(self):
+        """ Displays the number of the card played
+        Asks the player to guess if the next card is higher or lower
+            
+        Args:
+            self (Director): an instance of Director.
+        """
+
         card = Cards()
         self.firstCard = card.showNumberCard()
         self.secondCard = card.showNumberCard()
+
         print(f"The card is: {self.firstCard}")
-        self.card_guess = input("Higher or Lower? [h/l]")
+        self.card_guess = input("Higher or Lower? [h/l] ")
         return self.card_guess
 
     def compareValues(self):  
+        """Compare two numeric values, 
+        if the second is bigger returns'h' (higher)
+        if the second is smaller returns 'l'(lower)
+
+        Args:
+            val1 (int): The value from showNumberCard()
+            val2 (int): The value from showNextCard()
+        """
+
+        if not self.is_playing:
+           return 
         
         val1 = self.firstCard
         val2 = self.secondCard
@@ -37,24 +74,42 @@ class Director:
             return 'l'
 
     def computeScore(self):
+        """Compare two answers, if they're equal adds 100 points to the user,
+        if not substract 75 points from the user.
+        Displays the score.
+
+        Arg:
+            userAnsw: The answer from the user (getAnswer())
+            compAnsw: The answer from compareValues()
+        """
 
         if not self.is_playing:
             return
 
-        player = Player()
+        points = Points()
 
-        score = player.getScore()
+        self.score = points.getScore()
         userAnsw = self.card_guess
         compAnsw = self.compareValues()
 
         if (userAnsw == compAnsw):
-            score = player.correctScore
+            self.score = points.correctScore
         if (userAnsw != compAnsw):
-            score = player.incorrectScore
+            self.score = points.incorrectScore
+
+        self.total_score += self.score    
             
         print(f"Next card was: {self.secondCard}")
-        print(f"Your score is: {score}")
+        print(f"Your score is: {self.total_score}\n")
+        self.is_playing == (self.score > 0) 
 
-    def keepPlaying(self):   
+    def keepPlaying(self):  
+        """Ask the player if they want to play again
+        """ 
+
         playGame = input("Play game? [y/n] ")
-        self.is_playing = (playGame == "y")
+
+        if playGame.lower() == "y":
+            self.is_playing = True
+        else:
+            self.is_playing = False
