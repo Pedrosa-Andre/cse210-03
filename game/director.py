@@ -4,25 +4,26 @@ from card import Cards
 
 class Director:
     """A entity which directs the game. 
-    
+
     The responsibility of a Director is to control the sequence of play.
 
     Attributes:
         TODO add atributes
     """
+
     def __init__(self):
         """Constructs a new Director.
-        
+
         Args:
             self (Director): an instance of Director.
         """
         self.is_playing = True
-        self.score = 0  
-        self.total_score = 300 
+        self.score = 0
+        self.total_score = 300
 
     def start_game(self):
         """Starts the game by running the main game loop.
-            
+
         Args:
             self (Director): an instance of Director.
         """
@@ -35,11 +36,10 @@ class Director:
             if self.total_score <= 0:
                 self.keepPlaying()
 
-
     def getAnswer(self):
         """ Displays the number of the card played
         Asks the player to guess if the next card is higher or lower
-            
+
         Args:
             self (Director): an instance of Director.
         """
@@ -49,10 +49,15 @@ class Director:
         self.secondCard = card.showNumberCard()
 
         print(f"The card is: {self.firstCard}")
-        self.card_guess = input("Higher or Lower? [h/l] ")
+        while True:
+            self.card_guess = input("Higher or Lower? [h/l] ")
+            if self.card_guess.lower() not in ('h', 'l'):
+                print(f"Not an aprropriate input.")
+            else:
+                break
         return self.card_guess
 
-    def compareValues(self):  
+    def compareValues(self):
         """Compare two numeric values, 
         if the second is bigger returns'h' (higher)
         if the second is smaller returns 'l'(lower)
@@ -63,12 +68,12 @@ class Director:
         """
 
         if not self.is_playing:
-           return 
-        
+            return
+
         val1 = self.firstCard
         val2 = self.secondCard
 
-        if (val2 > val1): 
+        if (val2 > val1):
             return 'h'
         if (val2 < val1):
             return 'l'
@@ -97,15 +102,15 @@ class Director:
         if (userAnsw != compAnsw):
             self.score = points.incorrectScore
 
-        self.total_score += self.score    
-            
+        self.total_score += self.score
+
         print(f"Next card was: {self.secondCard}")
         print(f"Your score is: {self.total_score}\n")
-        self.is_playing == (self.score > 0) 
+        self.is_playing == (self.score > 0)
 
-    def keepPlaying(self):  
+    def keepPlaying(self):
         """Ask the player if they want to play again
-        """ 
+        """
 
         playGame = input("Play game? [y/n] ")
 
