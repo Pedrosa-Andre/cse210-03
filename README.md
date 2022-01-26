@@ -10,7 +10,7 @@ TBD
 
 ```
 You can also run the program from an IDE like Visual Studio Code. Start your IDE
-and open the project folder. Select the main module inside the dice folder and
+and open the project folder. Select the main module inside the hilo folder and
 click the "run" button.
 
 ## Project Structure
@@ -18,7 +18,19 @@ click the "run" button.
 The project files and folders are organized as follows:
 ```
 
-root (project root folder) +-- game (source code for game) +-- card.py (specific classes) +-- director.py (specific classes) +-- player.py (specific classes) +-- **main**.py (program entry point) +-- README.md (general info)
+root (project root folder) 
+
++-- game (source code for game) 
+
++-- card.py (specific classes) 
+
++-- director.py (specific classes) 
+
++-- points.py (specific classes) 
+
++-- **main**.py (program entry point) 
+
++-- README.md (general info)
 
 ```
 
@@ -26,8 +38,6 @@ root (project root folder) +-- game (source code for game) +-- card.py (specific
 ---
 * Visual Studio code
 
-GUI
+* Version control (GIT)
 
-![hilo](https://user-images.githubusercontent.com/90800458/150764854-e7e48109-ea93-422a-9439-a8fabdddffa0.jpg)
 
-```
