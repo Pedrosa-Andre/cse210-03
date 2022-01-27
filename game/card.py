@@ -10,15 +10,20 @@ class Cards:
         '''
         Set intial value of variable via constructor
         '''
-        self.cardGenerate = 0
+        self.cardGenerate = random.randint(1, 13)
 
-    def showNumberCard(self):
+    def pullFirstCard(self):
         '''
         Generate and return random value between 1 and 13 
         '''
         self.cardGenerate = random.randint(1, 13)
         return self.cardGenerate
 
+    def lastCard(self):
+        '''
+        Generate and return random value between 1 and 13 
+        '''
+        return self.cardGenerate
 
     
 

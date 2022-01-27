@@ -27,7 +27,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-
+        self.card = Cards()
         while self.is_playing:
             self.getAnswer()
             self.compareValues()
@@ -44,11 +44,10 @@ class Director:
             self (Director): an instance of Director.
         """
 
-        card = Cards()
-        self.firstCard = card.showNumberCard()
-        self.secondCard = card.showNumberCard()
+        self.lastCard = self.card.lastCard()
+        self.newCard = self.card.pullFirstCard()
 
-        print(f"The card is: {self.firstCard}")
+        print(f"The card is: {self.lastCard}")
         while True:
             self.card_guess = input("Higher or Lower? [h/l] ")
             if self.card_guess.lower() not in ('h', 'l'):
@@ -70,8 +69,8 @@ class Director:
         if not self.is_playing:
             return
 
-        val1 = self.firstCard
-        val2 = self.secondCard
+        val1 = self.lastCard
+        val2 = self.newCard
 
         if (val2 > val1):
             return 'h'
@@ -104,7 +103,7 @@ class Director:
 
         self.total_score += self.score
 
-        print(f"Next card was: {self.secondCard}")
+        print(f"Next card was: {self.newCard}")
         print(f"Your score is: {self.total_score}\n")
         self.is_playing == (self.score > 0)
 
